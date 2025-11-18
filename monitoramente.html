@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNISUPPORT - Monitoramento</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="app-bg">
+
+    <header class="app-header">
+        <div class="logo">
+            <strong>UNISUPPORT</strong>
+            <span>SERVICE DE SK</span>
+        </div>
+        <div class="user-info">
+            <i class="fas fa-user-circle"></i>
+            <span>msferreira</span>
+        </div>
+    </header>
+
+    <main class="main-content">
+        
+        <div class="monitoring-container">
+            <div class="monitoring-header">
+                <div class="monitoring-title">
+                    <h2>Monitoramento de chamados</h2>
+                    <a href="dashboard.html" class="back-link-inline">&lt; Voltar</a>
+                </div>
+                <div class="monitoring-filters">
+                    <button class="filter-item">
+                        Filtrar por: Data de abertura <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <button class="filter-item">
+                        Filtrar por: Prioridade <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <button class="filter-item">
+                        Filtrar por: Status <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="monitoring-table">
+                    <thead>
+                        <tr>
+                            <th>Número</th>
+                            <th>Data de abertura</th>
+                            <th>Solicitante</th>
+                            <th>Assunto</th>
+                            <th>Prioridade</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ticket-number-cell">#159753</td>
+                            <td>23 Out 2025 15:50</td>
+                            <td>(vazio)</td>
+                            <td>(vazio)</td>
+                            <td>(vazio)</td>
+                            <td>(vazio)</td>
+                            <td class="action-icons">
+                                <i class="fas fa-eye" title="Visualizar"></i>
+                                <i class="fas fa-times-circle" title="Fechar"></i>
+                                <i class="fas fa-info-circle" title="Detalhes"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ticket-number-cell">#159752</td>
+                            <td>23 Out 2025 15:27</td>
+                            <td>msferreira</td>
+                            <td>Realocação de equipamento</td>
+                            <td><span class="prio-tag prio-media">Média</span></td>
+                            <td><span class="status-tag status-fechado">Fechado</span></td>
+                            <td class="action-icons">
+                                <i class="fas fa-eye"></i>
+                                <i class="fas fa-times-circle"></i>
+                                <i class="fas fa-info-circle"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="ticket-number-cell">#159750</td>
+                            <td>22 Out 2025 09:15</td>
+                            <td>ajsilva</td>
+                            <td>Impressora não funciona</td>
+                            <td><span class="prio-tag prio-alta">Alta</span></td>
+                            <td><span class="status-tag status-aberto">Aberto</span></td>
+                            <td class="action-icons">
+                                <i class="fas fa-eye"></i>
+                                <i class="fas fa-times-circle"></i>
+                                <i class="fas fa-info-circle"></i>
+                            </td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

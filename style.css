@@ -1,0 +1,859 @@
+/* --- ESTILOS GERAIS E RESET --- */
+:root {
+    --primary-green: #1abc9c; /* Cor principal (botões, links) */
+    --header-gradient: linear-gradient(90deg, #16a085, #1abc9c);
+    --dark-text: #333;
+    --light-text: #555;
+    --light-gray-bg: #f4f7f6;
+    --border-color: #e0e0e0;
+    --white: #ffffff;
+    --status-closed-bg: #e6f7f3;
+    --status-closed-text: #16a085;
+    --blue-btn: #3498db;
+    --gray-btn: #bdc3c7;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--dark-text);
+    background-color: var(--white);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-green);
+    font-weight: 500;
+}
+
+/* --- ESTILOS DA TELA DE LOGIN --- */
+.login-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.login-form-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.logo {
+    margin-bottom: 30px;
+}
+
+.logo strong {
+    display: block;
+    font-size: 24px;
+    color: var(--dark-text);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    font-size: 14px;
+    color: var(--light-text);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: var(--light-text);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 30px; /* Borda bem arredondada */
+    font-size: 16px;
+    background-color: #fcfcfc;
+}
+
+.btn {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background-color: var(--primary-green);
+    color: var(--white);
+    width: 100%;
+}
+
+.login-illustration-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; /* Para conter o gradiente */
+    background-color: #f0fdfa; /* Fundo leve */
+}
+
+/* Simula a "mancha" verde da ilustração */
+.login-illustration-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    background-image: radial-gradient(circle, #1abc9c, #16a085, #128f76);
+    opacity: 0.2;
+    filter: blur(100px); /* Efeito de "blob" */
+    border-radius: 50%;
+}
+
+.illustration-placeholder {
+    width: 80%;
+    height: 60%;
+    /* Adicione sua imagem/svg aqui */
+    /* background: url('path/to/your/illustration.svg') no-repeat center center; */
+    background-size: contain;
+    z-index: 2; /* Fica na frente da mancha */
+}
+
+
+/* --- ESTILOS DO DASHBOARD --- */
+body.app-bg {
+    background-color: var(--light-gray-bg);
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: var(--header-gradient);
+    color: var(--white);
+}
+
+.app-header .logo strong,
+.app-header .logo span {
+    color: var(--white);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.user-info i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.main-content {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.chamados-container {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.chamados-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.chamados-header h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--primary-green);
+}
+
+.filter-group label {
+    font-size: 14px;
+    color: var(--light-text);
+    margin-right: 8px;
+}
+
+.filter-group select {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 14px;
+}
+
+.ticket-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+}
+
+.ticket-item:last-child {
+    border-bottom: none;
+}
+
+.ticket-item:hover {
+    background-color: #fdfdfd;
+}
+
+.ticket-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--dark-text);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.ticket-date {
+    font-size: 14px;
+    color: var(--light-text);
+}
+
+.ticket-meta {
+    display: flex;
+    align-items: center;
+}
+
+.ticket-id {
+    font-size: 14px;
+    color: var(--light-text);
+    margin-right: 15px;
+}
+
+.status-tag {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.status-fechado {
+    background-color: var(--status-closed-bg);
+    color: var(--status-closed-text);
+    border: 1px solid var(--status-closed-text);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.page-nav, .page-num {
+    padding: 8px 12px;
+    margin: 0 4px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: var(--light-text);
+}
+
+.page-num.active {
+    background-color: var(--primary-green);
+    color: var(--white);
+    font-weight: 700;
+}
+
+.page-nav:hover, .page-num:hover {
+    background-color: #f0f0f0;
+}
+
+/* --- ESTILOS DO MODAL --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--white);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--light-text);
+    cursor: pointer;
+}
+
+.modal-form {
+    padding: 25px;
+}
+
+.modal-form .form-group input,
+.modal-form .form-group textarea {
+    border-radius: 8px;
+    background-color: var(--white);
+}
+
+.modal-form .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    resize: vertical;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 25px;
+    border-top: 1px solid var(--border-color);
+    background-color: #f9f9f9;
+}
+
+.btn-secondary {
+    background-color: var(--gray-btn);
+    color: var(--dark-text);
+    margin-right: 10px;
+}
+
+.btn-primary-simple {
+    background-color: var(--blue-btn);
+    color: var(--white);
+}
+
+/* --- ESTILOS DA TELA DE DETALHE DO CHAMADO --- */
+
+.ticket-detail-container {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.ticket-detail-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.back-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--light-text);
+}
+
+.back-link:hover {
+    color: var(--primary-green);
+}
+
+.ticket-id-title {
+    font-size: 20px;
+    color: var(--primary-green);
+    margin-left: 10px;
+}
+
+.ticket-id-title span {
+    color: var(--light-text);
+    font-weight: 300;
+    margin: 0 5px;
+}
+
+.ticket-status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticket-status-row .ticket-date {
+    font-size: 14px;
+    color: var(--light-text);
+}
+
+/* --- Thread de Conversa --- */
+.chat-thread {
+    padding: 25px;
+}
+
+.chat-message {
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.message-header i {
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+.user-avatar {
+    color: var(--primary-green);
+}
+
+.agent-avatar {
+    color: #3498db; /* Azul para o agente */
+}
+
+.message-header strong {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+.message-header .message-date {
+    font-size: 13px;
+    color: var(--light-text);
+    margin-left: auto;
+}
+
+.message-body {
+    padding: 20px 25px;
+}
+
+.message-body h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark-text);
+    margin-bottom: 15px;
+}
+
+.message-body p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--light-text);
+    margin-bottom: 15px;
+}
+
+.message-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Estilo específico da mensagem do usuário */
+.user-message {
+    background: #fdfdfd;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-green); /* Linha verde da imagem */
+}
+
+/* Estilo específico da mensagem do agente */
+.agent-message {
+    background-color: #f0f8ff; /* Fundo azul claro */
+    border: 1px solid #cce4ff;
+    border-left: 4px solid #3498db; /* Linha azul */
+}
+
+.reply-button-container {
+    padding: 20px 25px;
+    border-top: 1px solid var(--border-color);
+    background-color: #f9f9f9;
+    text-align: right;
+}
+
+.btn-agent-reply {
+    background-color: #85c1e9; /* Cor do botão na imagem */
+    color: var(--white);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* --- ESTILOS TELA DE MONITORAMENTO --- */
+
+.monitoring-container {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.monitoring-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.monitoring-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.monitoring-title h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--primary-green);
+}
+
+.back-link-inline {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--light-text);
+}
+
+.back-link-inline:hover {
+    color: var(--primary-green);
+}
+
+.monitoring-filters {
+    display: flex;
+    gap: 15px;
+}
+
+.filter-item {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: var(--light-text);
+    cursor: pointer;
+}
+
+.filter-item i {
+    margin-left: 8px;
+    font-size: 12px;
+}
+
+.filter-item:hover {
+    background-color: #f9f9f9;
+}
+
+.table-wrapper {
+    overflow-x: auto; /* Para rolagem horizontal em telas pequenas */
+}
+
+.monitoring-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.monitoring-table th,
+.monitoring-table td {
+    padding: 16px 20px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 14px;
+    white-space: nowrap; /* Evita quebra de linha */
+}
+
+.monitoring-table th {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--light-text);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: #fcfcfc;
+}
+
+.monitoring-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.ticket-number-cell {
+    color: var(--primary-green);
+    font-weight: 700;
+}
+
+.action-icons {
+    font-size: 16px;
+    color: var(--light-text);
+}
+
+.action-icons i {
+    margin-right: 15px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.action-icons i:last-child {
+    margin-right: 0;
+}
+
+.action-icons i.fa-eye:hover { color: #3498db; } /* Azul */
+.action-icons i.fa-times-circle:hover { color: #e74c3c; } /* Vermelho */
+.action-icons i.fa-info-circle:hover { color: #f39c12; } /* Laranja */
+
+
+/* --- Tags de Status e Prioridade (Novas) --- */
+
+.status-aberto {
+    background-color: #fff8e1; /* Amarelo claro */
+    color: #f39c12; /* Laranja */
+    border: 1px solid #f39c12;
+}
+
+.prio-tag {
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid;
+}
+
+.prio-media {
+    background-color: #e6f7ff;
+    color: #3498db;
+    border-color: #3498db;
+}
+
+.prio-alta {
+    background-color: #ffeeee;
+    color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+/* --- ESTILOS DA LANDING PAGE (pre-login) --- */
+
+.landing-content {
+    width: 100%;
+    max-width: 450px; /* Um pouco mais de largura para o texto */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+
+.landing-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--dark-text);
+    line-height: 1.3;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.landing-subtitle {
+    font-size: 16px;
+    color: var(--light-text);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn-login-landing {
+    width: auto; /* Botão não ocupa 100% */
+    padding-left: 40px;
+    padding-right: 40px;
+    align-self: flex-start; /* Alinha o botão à esquerda */
+}
+
+.landing-footer {
+    font-size: 14px;
+    color: var(--light-text);
+    margin-top: auto; /* Empurra o rodapé para baixo */
+    padding-top: 40px;
+}
+
+/* --- ESTILOS DO MENU PRINCIPAL (home.html) --- */
+
+.dashboard-options {
+    display: flex;
+    gap: 30px;
+    justify-content: flex-start; /* Alinha os cartões no início */
+}
+
+.option-card {
+    background: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease-in-out;
+    color: var(--dark-text);
+    text-decoration: none;
+}
+
+.option-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: var(--primary-green);
+    transform: translateY(-3px);
+}
+
+.option-icon-wrapper {
+    margin-right: 25px;
+}
+
+.option-icon-wrapper i {
+    font-size: 40px;
+    color: var(--primary-green);
+    opacity: 0.7;
+}
+
+.option-text h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.option-text p {
+    font-size: 15px;
+    color: var(--light-text);
+    line-height: 1.5;
+}
+
+/* --- ESTILOS DO MODAL "ABRIR CHAMADO" --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--white);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--light-text);
+    cursor: pointer;
+}
+
+.modal-form {
+    padding: 25px;
+}
+
+.modal-form .form-group label {
+    font-weight: 500;
+    color: var(--dark-text); /* Rótulo um pouco mais escuro */
+}
+
+/* Reutiliza .form-group, mas ajusta os inputs */
+.modal-form .form-group input,
+.modal-form .form-group textarea {
+    border-radius: 8px;
+    background-color: var(--white); /* Fundo branco, não o cinza do login */
+    border: 1px solid var(--border-color);
+    padding: 12px 15px;
+}
+
+.modal-form .form-group textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 25px;
+    border-top: 1px solid var(--border-color);
+    background-color: #f9f9f9;
+}
+
+/* Reutiliza a classe .btn dos estilos globais */
+.btn-secondary {
+    background-color: var(--gray-btn);
+    color: var(--dark-text);
+    margin-right: 10px;
+}
+
+.btn-primary-simple {
+    background-color: var(--blue-btn);
+    color: var(--white);
+}
+
+/* Ajuste nos botões do modal para não terem borda arredondada */
+.modal-footer .btn {
+    border-radius: 5px; 
+    text-transform: none; /* Sem maiúsculas */
+    font-weight: 500;
+    padding: 10px 20px;
+}
