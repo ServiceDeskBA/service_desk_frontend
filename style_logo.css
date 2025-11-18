@@ -77,7 +77,8 @@ body {
   padding: 13px 60px;
   font-size: 16px;
   font-weight: 600;
-  border-radius: 999px; /* formato pílula */
+  border-radius: 999px;
+  /* formato pílula */
   text-decoration: none;
   text-transform: lowercase;
   margin-top: 35px;
@@ -99,7 +100,7 @@ body {
 /* ====== Coluna Direita (Imagem) ====== */
 .login-illustration-wrapper {
   flex: 1.1;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,24 +112,60 @@ body {
   height: auto;
 }
 
-.illustration-placeholder { width: 100%;
+.illustration-placeholder {
+  width: 100%;
   height: 100%;
-  background-image: url('img/animation.gif'); /* Seu GIF como background */ 
-  background-size: cover; /* Ajusta o GIF para cobrir toda a área */ 
-  background-position: center; 
-  background-repeat: no-repeat; 
-  display: flex; /* Para centralizar a imagem sobreposta */ 
+  position: relative;
+  display: flex;
   justify-content: center;
-  align-items: center; 
-  position: relative; /* Para posicionar o overlay */ 
+  align-items: center;
 }
 
- .illustration-placeholder .overlay-image {
-   position: absolute; /* Posiciona a imagem sobre o GIF */ 
-   max-width: 80%; /* Ajuste o tamanho da imagem conforme necessário */
-   max-height: 80%;
-   object-fit: contain; /* Garante que a imagem se encaixe sem distorção */
-   z-index: 1; /* Garante que a imagem esteja acima do GIF */ }
+/* Camada de fundo com o GIF */
+.illustration-placeholder::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-image: url('img/animation.gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  mix-blend-mode: hard-light;
+  opacity: 0.8;
+  z-index: 1;
+
+  /* 🌟 A Solução para Inverter no Eixo X 🌟 */
+transform: scaleX(-1) scaleY(-1);
+}
+
+
+
+/* 4. Garante que a imagem filha fique visível sobre o GIF */
+.illustration-placeholder>img {
+  /* Se sua imagem filha não tem um seletor específico, use um seletor de filho direto */
+  z-index: 2;
+  /* Deve ser maior que o z-index do ::before */
+  position: relative;
+  /* Necessário para que o z-index funcione corretamente */
+}
+
+
+.illustration-placeholder .overlay-image {
+  position: absolute;
+  /* Posiciona a imagem sobre o GIF */
+  max-width: 80%;
+  /* Ajuste o tamanho da imagem conforme necessário */
+  max-height: 80%;
+  object-fit: contain;
+  /* Garante que a imagem se encaixe sem distorção */
+  z-index: 1;
+  /* Garante que a imagem esteja acima do GIF */
+}
 
 /* ====== Responsividade ====== */
 @media (max-width: 960px) {
@@ -153,56 +190,67 @@ body {
     width: 100%;
   }
 }
+
 /* --- Estilos do Lado do Formulário --- */
 .login-form-wrapper {
-  flex: 1; padding: 40px; 
-  display: flex; 
-  flex-direction: column; 
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;/* Centraliza o formulário */ 
-  background-color: #fff; 
+  align-items: center;
+  /* Centraliza o formulário */
+  background-color: #fff;
 }
 
 .login-form {
-  width: 100%; 
-  max-width: 350px; /* Define uma largura máxima para o formulário */
- }
-.logo { 
-  margin-bottom: 30px; 
-  text-align: center; /* Centraliza o logo */ 
-} 
-.logo strong { 
-  font-size: 32px; 
-  font-weight: 700; 
-  color: #333; 
-  display: block; 
+  width: 100%;
+  max-width: 350px;
+  /* Define uma largura máxima para o formulário */
 }
 
-.logo span { 
-  font-size: 14px; 
-  color: #666; 
-  letter-spacing: 2px; 
-  text-transform: uppercase; 
-  display: block;
-  margin-top: -5px; 
+.logo {
+  margin-bottom: 30px;
+  text-align: center;
+  /* Centraliza o logo */
 }
-.form-group { 
-  margin-bottom: 20px; 
-} 
-.form-group label { 
-  display: block; 
-  margin-bottom: 8px; 
-  font-size: 14px; 
-  font-weight: 500; 
-  color: #555; 
-} 
-.form-group input { 
-  width: 100%; 
-  padding: 12px; 
-  border: 1px solid #ddd; 
-  border-radius: 5px; 
-  box-sizing: border-box; /* Garante que o padding não afete a largura */ 
-  font-size: 16px; 
+
+.logo strong {
+  font-size: 32px;
+  font-weight: 700;
+  color: #333;
+  display: block;
+}
+
+.logo span {
+  font-size: 14px;
+  color: #666;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+  margin-top: -5px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  /* Garante que o padding não afete a largura */
+  font-size: 16px;
 }
 
 .btn {
@@ -225,11 +273,13 @@ body {
 
 
 
-.btn-primary { 
-  background-color: #28a745; 
-  color: #fff; 
-  margin-top: 10px; /* Espaçamento acima do botão */ 
+.btn-primary {
+  background-color: #28a745;
+  color: #fff;
+  margin-top: 10px;
+  /* Espaçamento acima do botão */
 }
-.btn-primary:hover { 
- background-color: #218838; 
+
+.btn-primary:hover {
+  background-color: #218838;
 }
