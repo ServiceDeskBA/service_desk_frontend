@@ -23,6 +23,8 @@ body {
   display: flex;
   max-width: 1200px;
   width: 90%;
+  max-height: 600px;
+  height: 85%;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   overflow: hidden;
 }
@@ -247,7 +249,7 @@ transform: scaleX(-1) scaleY(-1);
   width: 100%;
   padding: 12px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 25px;
   box-sizing: border-box;
   /* Garante que o padding não afete a largura */
   font-size: 16px;
